@@ -2,6 +2,7 @@ require('dotenv').config();
 
 // node modules
 const http = require('http');
+const createError = require('http-errors');
 
 // npm modules
 const cors = require('cors');
@@ -45,7 +46,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // routes
 app.use('/api/v1', requireApiKey, uploadMulter.any(), require('./src/routes/api.routes'));
 
-
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  next(createError(404));
+});
 
 
 // server setup
