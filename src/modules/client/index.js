@@ -12,5 +12,6 @@ const requireAuth = passport.authenticate('jwt', { session: false });
 
 router.post('/create', requireAuth, controller.add);
 router.put('/update', requireAuth, controller.update);
+router.get('/list', requireAuth, controller.list);
 
 module.exports = router;
