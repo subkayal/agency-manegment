@@ -14,9 +14,9 @@ const User = require('../../models/user.model');
   passport.use('jwt', new JwtStrategy(accessTokenAuthOptions, (req, payload, done) => {
     User.findById(payload.id, (err, user) => {
       if (err) {
-        done(res.status(500).json({ success: false, message: err.message }), false);
+        done({ success: false, message: err.message }, false);
       }
-      if (!user) done(res.status(401).json({ success: false, message: "Unauthorized user" }), false);
+      if (!user) done({ success: false, message: "Unauthorized user"}, false);
       req.user = user;
       done(null, user);
     });

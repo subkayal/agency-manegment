@@ -12,7 +12,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 // app modules
-const mongoose = require('./src/database/mongoose');
+const mongoose = require('./src/config/database/mongoose');
 const { requireApiKey } = require('./src/config/middleware/apikey');
 
 const uploadMulter = multer({

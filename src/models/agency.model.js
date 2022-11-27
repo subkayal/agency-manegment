@@ -11,6 +11,7 @@ const agencySchema = new Schema(
     city: { type: String, default: '' },
     phone: { type: Number, default: 0 },
     status: { type: String, enum: ['active', 'inactive'], default: 'active' },
+    is_deleted: { type: Boolean, enum: [true, false], default: false },
   },{ timestamps: true },
 );
 
